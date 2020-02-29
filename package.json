@@ -30,8 +30,12 @@
   "dependencies": {
     "@types/valid-url": "^1.0.2",
     "bluebird": "^3.7.2",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "jimp": "^0.6.4",
+    "mocha": "^7.1.0",
+    "ts-mocha": "^6.0.0",
     "valid-url": "^1.0.9"
   }
 }
