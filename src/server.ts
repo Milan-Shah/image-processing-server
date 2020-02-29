@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { isWebUri } from 'valid-url';
 
 (async () => {
 
@@ -24,6 +25,10 @@ app.get("/filteredImage", async (req, res) => {
   if (!image_url) {
     return res.status(400).send("image url query is required");
   } 
+
+  if (!isWebUri(image_url)) {
+    return res.status(422).send("privided image url is not in the supported format")
+  }
 
   try {
     const localFile: string  = await filterImageFromURL(image_url);
