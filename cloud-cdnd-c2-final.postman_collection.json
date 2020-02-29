@@ -1,17 +1,17 @@
 {
 	"info": {
-		"_postman_id": "4bcf1909-8996-44b7-be35-b130ab03d12f",
+		"_postman_id": "195cbf8e-9510-42b4-8057-1dfe1d86eebd",
 		"name": "cloud-cdnd-c2-final",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8082/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+			"name": "Get filtered image",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+					"raw": "http://{{HOST}}/filteredimage?image_url=https://i.pinimg.com/originals/1b/6a/de/1b6ade076c494d9d7f82c32206d8488d.jpg",
 					"protocol": "http",
 					"host": [
 						"{{HOST}}"
@@ -22,7 +22,55 @@
 					"query": [
 						{
 							"key": "image_url",
-							"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+							"value": "https://i.pinimg.com/originals/1b/6a/de/1b6ade076c494d9d7f82c32206d8488d.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get filtered image (no query)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{HOST}}/filteredimage?image_url=https://i.pinimg.com/originals/1b/6a/de/1b6ade076c494d9d7f82c32206d8488d.jpg",
+					"protocol": "http",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://i.pinimg.com/originals/1b/6a/de/1b6ade076c494d9d7f82c32206d8488d.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get filtered image (invalid format)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{HOST}}/filteredimage?image_url=fdsjkfjkld",
+					"protocol": "http",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "fdsjkfjkld"
 						}
 					]
 				}
@@ -59,5 +107,6 @@
 			"value": "localhost:8082",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
