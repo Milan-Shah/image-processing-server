@@ -9,6 +9,8 @@ http://udagram-image-processing-server-dev.us-east-2.elasticbeanstalk.com/filter
 
 ![Elastic Beanstalk Dashboard](https://github.com/Milan-Shah/image-processing-server/blob/develop/deployment_screenshots/Udagram-image-processing-server.png)
 
+![Elastic Beanstalk Applications](https://github.com/Milan-Shah/image-processing-server/blob/develop/deployment_screenshots/Udagram_applications.png)
+
 ## Development
 
 Within the project directly, you can initialize a new project using `npm i` and run the deployment server locally using `npm run dev` using your terminal. 
