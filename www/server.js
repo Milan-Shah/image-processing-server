@@ -15,9 +15,10 @@ const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const util_1 = require("./util/util");
 const valid_url_1 = require("valid-url");
+let app;
 (() => __awaiter(this, void 0, void 0, function* () {
     // Init the Express application
-    const app = express_1.default();
+    app = express_1.default();
     // Set the network port
     const port = process.env.PORT || 8082;
     // Use the body parser middleware for post requests
@@ -37,7 +38,7 @@ const valid_url_1 = require("valid-url");
         }
         try {
             const localFile = yield util_1.filterImageFromURL(image_url);
-            res.sendFile(localFile, err => {
+            res.status(200).sendFile(localFile, err => {
                 if (err) {
                     console.error('ERROR for sending the file:', { localFile });
                 }
@@ -60,4 +61,5 @@ const valid_url_1 = require("valid-url");
         console.log(`press CTRL+C to stop server`);
     });
 }))();
+exports.default = app; // We will reference to this variable from our unit testing files and other places within app.
 //# sourceMappingURL=server.js.map
