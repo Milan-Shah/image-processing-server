@@ -3,10 +3,12 @@ import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 import { isWebUri } from 'valid-url';
 
+let app;
+
 (async () => {
 
   // Init the Express application
-  const app = express();
+  app = express();
 
   // Set the network port
   const port = process.env.PORT || 8082;
@@ -32,7 +34,7 @@ app.get("/filteredImage", async (req, res) => {
 
   try {
     const localFile: string  = await filterImageFromURL(image_url);
-    res.sendFile(localFile, err => {
+    res.status(200).sendFile(localFile, err => {
       if (err) {
         console.error('ERROR for sending the file:', { localFile })
       }
@@ -57,3 +59,5 @@ app.get("/filteredImage", async (req, res) => {
       console.log( `press CTRL+C to stop server` );
   } );
 })();
+
+export default app; // We will reference to this variable from our unit testing files and other places within app.
